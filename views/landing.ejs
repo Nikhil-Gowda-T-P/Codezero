@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>landing</title>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap');
+body {
+    display: flex;
+    flex-direction: column;
+    top: 0; margin: 0;
+    height: 100vh;
+    background-color: #f5f5f5;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.main-container {
+    margin-top: 3rem;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    height: 40vh;
+    /* position: fixed; */
+    background-color: #fff;
+    /* max-width: 700px; */
+}
+
+
+.text-1{
+    font-weight: 800;
+    font-size: 42px;
+    background: -webkit-linear-gradient(43deg,#4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    max-width: 37rem;
+    margin-left: 27rem;
+}
+
+.text-2{
+    font-weight: 800;
+    font-size: 24px;
+    background: -webkit-linear-gradient(43deg,#4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    /* max-width: 50rem;
+    margin-left: 27rem; */
+}
+
+.card-parent {
+  width: 100%;
+  height: fit-content;
+  background-color: #f5f5f5;
+  display: flex;
+  /* position: fixed; */
+  top: 40%;
+  align-items: center;
+  justify-content: center;
+
+  gap: 2.6rem;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.055);
+}
+
+
+.card1 {
+  width: 19rem;
+  height: 22rem;
+  border-radius: 30px;
+  
+  background: #e0e0e0;
+  box-shadow: 15px 15px 30px #bebebe,
+             -15px -15px 30px #ffffff;
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition-duration: .3s;
+}
+
+
+/* button {
+    background-image: linear-gradient(to right, #EE5757, #FE904B);
+    color: white;
+    width: 100%;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 15px;
+    margin-left: 0.6rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+} */
+
+
+.card1:hover {
+  animation: slide-in-top 0.9s both;
+  color: #fff;
+}
+
+.containerOne:hover {
+  background: -webkit-linear-gradient(43deg,#4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  transition-duration: .3s;
+  color: #fff;
+}
+    
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.content{
+    color: #000;
+    font-size: 30px;
+    text-align: center;
+    width: 10rem;
+}
+
+.card1:hover .content {
+    color: #fff;
+}
+
+
+</style>
+
+<body>
+    <div class="main-container">
+        <p class="text-1">Discover the easiest way to create static websites.</p>
+        <p class="text-2">Transform your plain text into static websites and blogs!</p>
+
+    </div>
+    
+    <div class="card-parent">
+        <a href="blogpost" class="card1 containerOne"><p class="content">Personal Blog Posts</p></a>
+        <a href="portfolio" class="card1 containerOne"><p class="content">Portfolio Pages</p></a>
+        <a href="landingPages" class="card1 containerOne"><p class="content">Landing Pages</p></a>
+        <a href="BrochureSites" class="card1 containerOne"><p class="content">Brochure sites</p></a>
+
+    </div>
+    <!-- <p>sdghshdgh</p> -->
+</body>
+</html>
