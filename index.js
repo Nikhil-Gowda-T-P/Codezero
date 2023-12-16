@@ -114,7 +114,7 @@ app.post('/saveLanding', upload.any(), (req, res) => {
     const userid=2
     const siteid=211
 
-
+//checking commmit
     const images = req.files.map(file => ({
         fieldname: file.fieldname,
         originalname: file.originalname,
