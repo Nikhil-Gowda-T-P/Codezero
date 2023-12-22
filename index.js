@@ -354,6 +354,7 @@ app.post('/saveProduct', upload.any(), (req, res) => {
     catch(e){
         console.log(e.message)
     }
+    res.render(ecommerce.ejs)
 });
 
 
