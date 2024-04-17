@@ -114,7 +114,7 @@ app.post('/saveLanding', upload.any(), (req, res) => {
     const userid=2
     const siteid=211
 
-
+//checking commmit
     const images = req.files.map(file => ({
         fieldname: file.fieldname,
         originalname: file.originalname,
@@ -284,7 +284,128 @@ app.get('/getlanding/:userid/:siteid',(req,res)=>{
     }}
 
 
+});
+
+const productSchema=new mongoose.Schema({
+    userid:Number,
+    storeid:Number,
+    template_id:Number,
+    product_name:String,
+    price:Number,
+    desc:String,
+    
+    images: [imageSchema],
+
+
 })
+
+const Product=mongoose.model('Product',productSchema)
+
+
+app.get('/ecommerce',(req,res)=>{
+    res.render('ecommerce.ejs');
+
+})
+
+app.post('/saveProduct', upload.any(), (req, res) => {
+    
+    const userid=21;
+    const storeid=4;
+    
+    const template_id =req.body['template_id'] ; 
+    const product_name=req.body['product_name'];
+    const price=req.body['price'];
+    const desc=req.body['desc'];
+
+    //const tag=req.body['tag'];
+    //const facebook=req.body['facebook'];
+    //const insta=req.body['insta'];
+    //const twitter=req.body['twitter'];
+
+    
+    const images = req.files.map(file => ({
+        fieldname: file.fieldname,
+        originalname: file.originalname,
+        encoding: file.encoding,
+        mimetype: file.mimetype,
+        buffer: file.buffer
+    }));
+
+    const newProduct= new Product({
+
+        userid,
+        storeid,
+        template_id,
+        product_name,
+        price,
+        desc,
+       
+        
+        
+
+    });
+
+    try {
+    newProduct.save()
+    console.log(" Product data saved to db")
+    console.log(newProduct)
+    
+    }
+    catch(e){
+        console.log(e.message)
+    }
+    res.render(ecommerce.ejs)
+});
+
+
+
+
+app.get('/getstore/:userid/:storeid',(req,res)=>{
+    console.log("connected to getstore")
+    const { userid, storeid } = req.params;
+    console.log("userid")
+    console.log(userid) 
+    console.log(storeid)
+    run()
+    async function run(){
+    try{
+        //const Store= await landings.find({userid:userid},{siteid:siteid})
+        const products= await Product.find({userid,storeid})
+        console.log(products)
+        /*const blogname=Store.blogname
+        const tag=Store.tag
+        const description=Store.desc
+        const facebook=Store.facebook
+        const insta=Store.insta
+        const twitter=Store.twitter
+        const images=Store.images
+        const keywords=Store.keywords
+        const desc=description
+    const template_id=Store.template_id*/
+        //const images=null
+
+         if (template_id === 1) {
+            res.render('store1.ejs', { products });
+        } else if (template_id === 2) {
+            res.render('store2.ejs', { products });
+        } else {
+            // handle unknown template_id or default case
+            res.render('error.ejs', { message: "Invalid template selected" });
+        }
+
+        
+
+
+
+
+
+    }catch(e){
+        console.log(e.message)
+    }}
+
+
+});
+
 
 
 
